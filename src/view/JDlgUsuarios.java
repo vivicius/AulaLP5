@@ -268,7 +268,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar,
                 jCboNivel, jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-
+       
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
@@ -283,6 +283,8 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar,
                 jCboNivel, jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
+             Util.limpar(jTxtCodigo,jCboNivel, jChbAtivo, jTxtNome,jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
+    
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
