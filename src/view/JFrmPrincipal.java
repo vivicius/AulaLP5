@@ -90,6 +90,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\Users\\u06716483144\\Documents\\AulaLP5\\src\\img\\icons8-grupo-de-usuário-homem-homem-40.png")); // NOI18N
         jMenuItem11.setText("Cliente");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
@@ -137,6 +142,15 @@ public class JFrmPrincipal extends javax.swing.JFrame {
              jDlgUsuarios.setLocationRelativeTo(this); // centraliza
              jDlgUsuarios.setVisible(true);            // exibe
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        JDlgClientes jDlgClientes = new JDlgClientes(this, true);
+             jDlgClientes.setLocationRelativeTo(this); // centraliza
+             jDlgClientes.setVisible(true);            // exibe
+             
+             
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
