@@ -23,86 +23,73 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="filler2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jFmtCEP" min="-2" pref="162" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTxtEndereco" min="-2" pref="140" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTxtCodigo" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                          <Component id="jPwfSenha" min="-2" pref="169" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="jCboNivel" min="-2" pref="151" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jChbAtivo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                          <Component id="jBtnIncluir" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                          <Component id="jBtnAlterar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="jBtnExcluir" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="52" pref="52" max="-2" attributes="0"/>
-                          <Component id="jBtnConfirmar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                          <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                          <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+              <Component id="jTxtCodigo" min="-2" pref="100" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+              <Component id="jTxtNome" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jTxtEmail" min="-2" pref="153" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jFmtCpf" min="-2" pref="162" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jFmtDataDeNascimento" min="-2" pref="150" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+              <Component id="jCboSEXOOOO" min="-2" pref="151" max="-2" attributes="0"/>
+              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+              <Component id="jFmtCEP1" min="-2" pref="162" max="-2" attributes="0"/>
+              <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jTxtCidade" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace min="138" pref="138" max="-2" attributes="0"/>
+                      <Component id="jTxtBairro" min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jCboSEXOOOO" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
-                              <Component id="jTxtBairro" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jTxtNome" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="jTxtEmail" min="-2" pref="153" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="jFmtCpf" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="jFmtDataDeNascimento" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace pref="76" max="32767" attributes="0"/>
-                              <Component id="filler3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jTxtEndereco" min="-2" pref="140" max="-2" attributes="0"/>
               </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+              <Component id="jTxtCidade" min="-2" pref="140" max="-2" attributes="0"/>
+              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+              <Component id="jFmtTelefone" min="-2" pref="162" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jFmtCelular1" min="-2" pref="162" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Component id="jFmtDivida" min="-2" pref="162" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="806" pref="806" max="-2" attributes="0"/>
+              <Component id="filler1" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+              <Component id="jPwfSenha" min="-2" pref="169" max="-2" attributes="0"/>
+              <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
+              <Component id="jCboNivel" min="-2" pref="151" max="-2" attributes="0"/>
+              <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
+              <Component id="jChbAtivo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+              <Component id="jBtnIncluir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+              <Component id="jBtnAlterar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="jBtnExcluir" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="52" pref="52" max="-2" attributes="0"/>
+              <Component id="jBtnConfirmar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+              <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+              <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,50 +98,57 @@
           <Group type="102" attributes="0">
               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
               <Component id="jTxtCodigo" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTxtNome" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jTxtEmail" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jFmtCpf" min="-2" pref="50" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                      <Component id="jFmtDataDeNascimento" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jCboSEXOOOO" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="jFmtCEP1" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jTxtBairro" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jTxtEndereco" min="-2" pref="50" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTxtCidade" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTxtNome" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jTxtEmail" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jFmtCpf" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="jFmtDataDeNascimento" min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jFmtTelefone" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jFmtCelular1" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jFmtDivida" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="filler3" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jCboSEXOOOO" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFmtCEP" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="jTxtEndereco" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="jTxtBairro" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Component id="jTxtCidade" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
               <Component id="filler1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jPwfSenha" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jCboNivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+                      <Component id="jPwfSenha" min="-2" pref="42" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jCboNivel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jChbAtivo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jChbAtivo" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" pref="21" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                      <Component id="jLabel8" min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jBtnIncluir" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnAlterar" min="-2" max="-2" attributes="0"/>
@@ -169,8 +163,7 @@
                   <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="filler2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -244,6 +237,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jChbAtivo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jChbAtivoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jCboNivel">
       <Properties>
@@ -281,9 +277,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnIncluir">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\u06716483144\Documents\AulaLP5\src\img\icons8-adicionar-50.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
       <Events>
@@ -292,9 +285,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnAlterar">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\u06716483144\Documents\AulaLP5\src\img\icons8-alterar-50.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
       <Events>
@@ -303,9 +293,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnExcluir">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\u06716483144\Documents\AulaLP5\src\img\icons8-lixo-50.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
       <Events>
@@ -314,9 +301,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnConfirmar">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\u06716483144\Documents\AulaLP5\src\img\icons8-confirmar-50.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
@@ -325,9 +309,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnCancelar">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\u06716483144\Documents\AulaLP5\src\img\icons8-cancelar-50.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
@@ -336,9 +317,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnPesquisar">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\u06716483144\Documents\AulaLP5\src\img\icons8-pesquisar-50.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
       <Events>
@@ -411,14 +389,14 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmtCEP">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtDivida">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtCEPActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtDividaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtEndereco">
@@ -456,6 +434,36 @@
           </Border>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFmtCEP1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtCEP1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFmtTelefone">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtTelefoneActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFmtCelular1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmtCelular1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

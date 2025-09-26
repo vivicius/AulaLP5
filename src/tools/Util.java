@@ -4,6 +4,8 @@
  */
 package tools;
 
+import com.formdev.flatlaf.json.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -37,42 +39,43 @@ public class Util {
 
         }
     }
-    public static void mensagem(String cad) {
-        JOptionPane.showMessageDialog(null, cad);
+
+    public static boolean perguntar(String cad) {
+        int opcao = JOptionPane.showConfirmDialog(null, cad, "Confirmação", JOptionPane.YES_NO_OPTION);
+        return opcao == JOptionPane.YES_OPTION;
     }
-  public static boolean perguntar(String cad) {
-        JOptionPane.showConfirmDialog(null, cad);
-        return true;
-        
-      
-    }
+
     public static int strToInt(String num) {
-        return Integer.valueOf(num);
-        
+        return Integer.parseInt(num);
     }
-    
+
     public static String intToString(int num) {
         return String.valueOf(num);
     }
-    
-    public static double strToDouble(int num) {
-        return 0;
+
+    public static double strToDouble(String num) {
+        return Double.parseDouble(num);
     }
-    public static String DoubleToString(int num) {
-        return "";
+
+    public static String doubleToString(double num) {
+        return String.valueOf(num);
     }
-    public static Date strToDate(String data) {
-        return null;
+
+    public static Date strToDate(String data) throws java.text.ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            return sdf.parse(data);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Data inválida: " + data);
+        }
     }
+
     public static String dateToStr(Date data) {
-        return "";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(data);
     }
-    
+
     //primeiro commit - Pacotes tools e view Util.java finalizado
     //2 commit tela principal e dos cadastros finalizado
     //3 commit telas cadastros usando o util.java
-    
-    
-    
-    
 }
