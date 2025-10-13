@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Usuarios;
 
-import bean.Usuarios;
+import bean.VmanUsuarios;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -21,8 +21,8 @@ public class ControllerUsuarios extends AbstractTableModel {
         this.lstUsuarios = lstUsuarios;
     }
     
-    public Usuarios getBean(int rowIndex) {
-        return (Usuarios) lstUsuarios.get(rowIndex);
+    public VmanUsuarios getBean(int rowIndex) {
+        return (VmanUsuarios) lstUsuarios.get(rowIndex);
     }
 
     @Override
@@ -38,15 +38,15 @@ public class ControllerUsuarios extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Usuarios usuarios = (Usuarios) lstUsuarios.get( rowIndex);
+        VmanUsuarios usuarios = (VmanUsuarios) lstUsuarios.get( rowIndex);
         if ( columnIndex == 0 ){
-            return usuarios.getIdusuarios();
+            return usuarios.getVmanIdusuarios();
         } else if (columnIndex ==1) {
-            return usuarios.getNome();        
+            return usuarios.getVmanNome();        
         } else if (columnIndex ==2) {
-            return usuarios.getApelido();
+            return usuarios.getVmanApelido();
         } else if (columnIndex ==3) {
-            return usuarios.getCpf();
+            return usuarios.getVmanCpf();
         }
         return "";
     }

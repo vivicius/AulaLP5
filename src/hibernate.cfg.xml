@@ -41,21 +41,14 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_vinicius_nunes?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping class="bean.Vendedor"/>
-    <mapping class="bean.PedidosProdutos"/>
-    <mapping class="bean.Produtos"/>
-    <mapping class="bean.Clientes"/>
-    <mapping class="bean.Pedidos"/>
-    <mapping class="bean.Usuarios"/>
-    <mapping class="bean.Usuarios"/>
-    <mapping class="bean.PedidosProdutos"/>
-    <mapping class="bean.Clientes"/>
-    <mapping class="bean.Vendedor"/>
-    <mapping class="bean.Pedidos"/>
-    <mapping class="bean.Produtos"/>
+    <mapping class="bean.VmanUsuarios"/>
+    <mapping class="bean.VmanProdutos"/>
+    <mapping class="bean.VmanVendedor"/>
+    <mapping class="bean.VmanVendas"/>
+    <mapping class="bean.VmanClientes"/>
+    <mapping class="bean.VmanVendasProdutos"/>
   </session-factory>
 </hibernate-configuration>

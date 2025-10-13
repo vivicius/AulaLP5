@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Usuarios;
 
-import bean.Usuarios;
+import bean.VmanUsuarios;
 import dao.UsuariosDAO;
 import tools.Util;
 import javax.swing.*;
@@ -50,15 +50,15 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     }
 
-    public void beanView(Usuarios usuarios) {
-        jTxtCodigo.setText(Util.intToString(usuarios.getIdusuarios()));
-        jTxtNome.setText(usuarios.getNome());
-        jTxtApelido.setText(usuarios.getApelido());
-        jFmtCpf.setText(usuarios.getCpf());
-        jFmtDataDeNascimento.setText(Util.dateToStr(usuarios.getDataNascimento()));
-        jPwfSenha.setText(usuarios.getSenha());
-        jCboNivel.setSelectedIndex(usuarios.getNivel());
-        if (usuarios.getAtivo().equals("S") == true) {
+    public void beanView(VmanUsuarios usuarios) {
+        jTxtCodigo.setText(Util.intToString(usuarios.getVmanIdusuarios()));
+        jTxtNome.setText(usuarios.getVmanNome());
+        jTxtApelido.setText(usuarios.getVmanApelido());
+        jFmtCpf.setText(usuarios.getVmanCpf());
+        jFmtDataDeNascimento.setText(Util.dateToStr(usuarios.getVmanDataNascimento()));
+        jPwfSenha.setText(usuarios.getVmanSenha());
+        jCboNivel.setSelectedIndex(usuarios.getVmanNivel());
+        if (usuarios.getVmanAtivo().equals("S") == true) {
             jChbAtivo.setSelected(true);
         } else {
             jChbAtivo.setSelected(false);
@@ -66,20 +66,20 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     }
 
-    public Usuarios viewBean() throws ParseException {
-        Usuarios usuarios = new Usuarios();
+    public VmanUsuarios viewBean() throws ParseException {
+        VmanUsuarios usuarios = new VmanUsuarios();
         int codigo = Util.strToInt(jTxtCodigo.getText()); //ou usuarios.setIdusuarios(Util.strToInt(jTxtCodigo.getText()));
-        usuarios.setIdusuarios(codigo);
-        usuarios.setNome(jTxtNome.getText());
-        usuarios.setApelido(jTxtApelido.getText());
-        usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
-        usuarios.setCpf(jFmtCpf.getText());
-        usuarios.setSenha(jPwfSenha.getText());
-        usuarios.setNivel(jCboNivel.getSelectedIndex());
+        usuarios.setVmanIdusuarios(codigo);
+        usuarios.setVmanNome(jTxtNome.getText());
+        usuarios.setVmanApelido(jTxtApelido.getText());
+        usuarios.setVmanDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
+        usuarios.setVmanCpf(jFmtCpf.getText());
+        usuarios.setVmanSenha(jPwfSenha.getText());
+        usuarios.setVmanNivel(jCboNivel.getSelectedIndex());
         if (jChbAtivo.isSelected() == true) {
-            usuarios.setAtivo("S");
+            usuarios.setVmanAtivo("S");
         } else {
-            usuarios.setAtivo("N");
+            usuarios.setVmanAtivo("N");
         }
 
         return usuarios;
@@ -357,7 +357,6 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         UsuariosDAO usuariosDAO = new UsuariosDAO();
-     
         if (incluir == true) {
             try {
 
@@ -377,11 +376,8 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         
         Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir, jCboNivel,
                 jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
-
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
-
         Util.limpar(jTxtCodigo, jTxtApelido, jTxtNome, jFmtCpf, jFmtDataDeNascimento, jCboNivel, jChbAtivo, jPwfSenha);
-
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 

@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package view;
+package view.Clientes;
 
-import bean.Usuarios;
-import dao.UsuariosDAO;
+import view.Clientes.*;
+import bean.VmanClientes;
+import dao.ClientesDAO;
 import java.util.List;
 import tools.Util;
 
@@ -13,29 +14,29 @@ import tools.Util;
  *
  * @author Marcos
  */
-public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
+public class JDlgClientesPesquisar extends javax.swing.JDialog {
 
     /**
-     * Creates new form JDlgUsuariosPesquisar
+     * Creates new form JDlgClientesPesquisar
      */
-    private JDlgUsuarios jDlgUsuarios;
-    ControllerUsuarios controllerUsuarios;
+    private JDlgClientes jDlgClientes;
+    ControllerClientes controllerClientes;
     private boolean ok = false;
 
-    public JDlgUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
+    public JDlgClientesPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Pesquisar Usuários");
-        controllerUsuarios = new ControllerUsuarios();
-        UsuariosDAO usuariosDAO = new UsuariosDAO();
-        List lista = (List) usuariosDAO.listAll();
-        controllerUsuarios.setList(lista);
-        jTable1.setModel(controllerUsuarios);
+        controllerClientes = new ControllerClientes();
+        ClientesDAO clientesDAO = new ClientesDAO();
+        List lista = (List) clientesDAO.listAll();
+        controllerClientes.setList(lista);
+        jTable1.setModel(controllerClientes);
     }
 
-    public void setTelaAnterior(JDlgUsuarios jDlgUsuarios) {;
-        this.jDlgUsuarios = jDlgUsuarios;
+    public void setTelaAnterior(JDlgClientes jDlgClientes) {;
+        this.jDlgClientes = jDlgClientes;
     }
 
     public boolean ok() {
@@ -106,13 +107,13 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
          try {
-        Usuarios usuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
-        jDlgUsuarios.beanView(usuarios);
+        VmanClientes clientes =  controllerClientes.getBean( jTable1.getSelectedRow() );
+        jDlgClientes.beanView(clientes);
         this.setVisible(false);
         ok = true;
             
         } catch (Exception e) {
-            Util.mensagem("ESCOLHA UM USER!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Util.mensagem("ESCOLHA UM USER!");
         }
         
     }//GEN-LAST:event_jBtnOkActionPerformed
@@ -134,21 +135,23 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlgUsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlgUsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlgUsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlgUsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlgUsuariosPesquisar dialog = new JDlgUsuariosPesquisar(new javax.swing.JFrame(), true);
+                JDlgClientesPesquisar dialog = new JDlgClientesPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -66,16 +66,15 @@ public class Util {
     }
 
     public static Date strToDate(String data) throws java.text.ParseException {
-        if ("__/__/____".equals(data)) {
+        if (data == null || data.trim().isEmpty() || "__/__/____".equals(data.trim())) {
             return null;
-        }
-        else{
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            return sdf.parse(data);
-        } catch (ParseException e) {
-            throw new IllegalArgumentException("Data inválida: " + data);
-        }
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                return sdf.parse(data);
+            } catch (ParseException e) {
+                throw new IllegalArgumentException("Data inválida: " + data);
+            }
         }
     }
 

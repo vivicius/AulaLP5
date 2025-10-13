@@ -5,8 +5,8 @@
  */
 package view;
 
-import bean.Clientes;
-import bean.Vendedor;
+import bean.VmanClientes;
+import bean.VmanVendedor;
 import dao.ClientesDAO;
 import java.util.List;
 import javax.swing.BorderFactory;
@@ -17,12 +17,12 @@ import tools.Util;
  *
  * @author user
  */
-public class JDlgPedidos extends javax.swing.JDialog {
+public class JDlgVendas extends javax.swing.JDialog {
 
     /**
      * Creates new form JDlgPedidos
      */
-    public JDlgPedidos(java.awt.Frame parent, boolean modal) {
+    public JDlgVendas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         TitledBorder DataNasc = BorderFactory.createTitledBorder("Data de Nascimento");
@@ -31,7 +31,7 @@ public class JDlgPedidos extends javax.swing.JDialog {
         ClientesDAO clientesDAO = new ClientesDAO();
         List lista = (List) clientesDAO.listAll();
         for (int i = 0; i < lista.size(); i++) {
-            jCboxCliente.addItem((Clientes) lista.get(i));
+            jCboxCliente.addItem((VmanClientes) lista.get(i));
         }
                 
     }
@@ -49,7 +49,7 @@ public class JDlgPedidos extends javax.swing.JDialog {
         jFmtData = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jCboxCliente = new javax.swing.JComboBox<Clientes>();
+        jCboxCliente = new javax.swing.JComboBox<VmanClientes>();
         jTxtTotal = new javax.swing.JTextField();
         jBtnAlterar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
@@ -277,7 +277,7 @@ public class JDlgPedidos extends javax.swing.JDialog {
 
     private void jBtnIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirProdActionPerformed
         // TODO add your handling code here:
-        JDlgPedidosProdutos jDlgPedidosProdutos = new JDlgPedidosProdutos(null, true);
+        JDlgVendasProdutos jDlgPedidosProdutos = new JDlgVendasProdutos(null, true);
         jDlgPedidosProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
 
@@ -309,20 +309,21 @@ public class JDlgPedidos extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlgPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlgPedidos dialog = new JDlgPedidos(new javax.swing.JFrame(), true);
+                JDlgVendas dialog = new JDlgVendas(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -344,7 +345,7 @@ public class JDlgPedidos extends javax.swing.JDialog {
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnIncluirProd;
     private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JComboBox<Clientes> jCboxCliente;
+    private javax.swing.JComboBox<VmanClientes> jCboxCliente;
     private javax.swing.JComboBox<Vendedor> jCboxVendedor;
     private javax.swing.JFormattedTextField jFmtData;
     private javax.swing.JScrollPane jScrollPane1;

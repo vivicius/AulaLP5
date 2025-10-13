@@ -41,10 +41,10 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="db_vinicius_nunes"/>
-  <table-filter match-name="pedidos_produtos"/>
-  <table-filter match-name="produtos"/>
-  <table-filter match-name="vendedor"/>
-  <table-filter match-name="usuarios"/>
-  <table-filter match-name="clientes"/>
-  <table-filter match-name="pedidos"/>
+  <table-filter match-name="vman_vendas_produtos"/>
+  <table-filter match-name="vman_produtos"/>
+  <table-filter match-name="vman_clientes"/>
+  <table-filter match-name="vman_vendedor"/>
+  <table-filter match-name="vman_usuarios"/>
+  <table-filter match-name="vman_vendas"/>
 </hibernate-reverse-engineering>
