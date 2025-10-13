@@ -7,6 +7,7 @@ package view;
 import bean.Usuarios;
 import dao.UsuariosDAO;
 import java.util.List;
+import tools.Util;
 
 /**
  *
@@ -17,9 +18,10 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form JDlgUsuariosPesquisar
      */
-    private JDlgProdutos jDlgUsuarios;
+    private JDlgUsuarios jDlgUsuarios;
     ControllerUsuarios controllerUsuarios;
-    
+    private boolean ok = false;
+
     public JDlgUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -32,10 +34,14 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         jTable1.setModel(controllerUsuarios);
     }
 
-    public void setTelaAnterior( JDlgProdutos jDlgUsuarios) {;
+    public void setTelaAnterior(JDlgUsuarios jDlgUsuarios) {;
         this.jDlgUsuarios = jDlgUsuarios;
     }
-    
+
+    public boolean ok() {
+        return ok;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,9 +105,16 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
+         try {
         Usuarios usuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
         jDlgUsuarios.beanView(usuarios);
         this.setVisible(false);
+        ok = true;
+            
+        } catch (Exception e) {
+            Util.mensagem("ESCOLHA UM USER!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**
@@ -152,4 +165,5 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
 }

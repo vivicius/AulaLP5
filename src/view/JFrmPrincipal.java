@@ -181,7 +181,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        JDlgProdutos jDlgUsuarios = new JDlgProdutos(this, true);
+        JDlgUsuarios jDlgUsuarios = new JDlgUsuarios(this, true);
         jDlgUsuarios.setLocationRelativeTo(this); // centraliza
         jDlgUsuarios.setVisible(true);            // exibe
     }//GEN-LAST:event_jMenuItem6ActionPerformed

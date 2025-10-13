@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.Usuarios;
+import bean.Produtos;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -42,7 +42,7 @@ public class ProdutosDAO extends AbstractDAO{
     @Override
     public Object list(int id) {
        session.beginTransaction();
-       Criteria criteria = session.createCriteria((Usuarios.class));
+       Criteria criteria = session.createCriteria((Produtos.class));
        criteria.add(Restrictions.eq("idusarios", id));
        session.getTransaction(); 
        List lista = criteria.list();
