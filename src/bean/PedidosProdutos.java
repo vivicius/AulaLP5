@@ -1,8 +1,7 @@
 package bean;
-// Generated 15/09/2025 07:57:35 by Hibernate Tools 4.3.1
+// Generated 13/10/2025 05:11:39 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,21 +17,21 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="pedidos_produtos"
-    ,catalog="db_marcos_vilhanueva"
+    ,catalog="db_vinicius_nunes"
 )
 public class PedidosProdutos  implements java.io.Serializable {
 
 
-     private Integer idpedidosProdutos;
+     private int idpedidosProdutos;
      private Pedidos pedidos;
      private Produtos produtos;
-     private Integer quantidade;
-     private BigDecimal valorUnitario;
+     private int quantidade;
+     private double valorUnitario;
 
     public PedidosProdutos() {
     }
 
-    public PedidosProdutos(Pedidos pedidos, Produtos produtos, Integer quantidade, BigDecimal valorUnitario) {
+    public PedidosProdutos(Pedidos pedidos, Produtos produtos, int quantidade, double valorUnitario) {
        this.pedidos = pedidos;
        this.produtos = produtos;
        this.quantidade = quantidade;
@@ -43,11 +42,11 @@ public class PedidosProdutos  implements java.io.Serializable {
 
     
     @Column(name="idpedidos_produtos", unique=true, nullable=false)
-    public Integer getIdpedidosProdutos() {
+    public int getIdpedidosProdutos() {
         return this.idpedidosProdutos;
     }
     
-    public void setIdpedidosProdutos(Integer idpedidosProdutos) {
+    public void setIdpedidosProdutos(int idpedidosProdutos) {
         this.idpedidosProdutos = idpedidosProdutos;
     }
 
@@ -73,21 +72,21 @@ public class PedidosProdutos  implements java.io.Serializable {
 
     
     @Column(name="quantidade")
-    public Integer getQuantidade() {
+    public int getQuantidade() {
         return this.quantidade;
     }
     
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
     
-    @Column(name="valorUnitario", precision=10)
-    public BigDecimal getValorUnitario() {
+    @Column(name="valorUnitario", precision=10, scale=0)
+    public double getValorUnitario() {
         return this.valorUnitario;
     }
     
-    public void setValorUnitario(BigDecimal valorUnitario) {
+    public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 

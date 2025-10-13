@@ -5,8 +5,8 @@
  */
 package view;
 
-import bean.Usuarios;
-import dao.UsuariosDAO;
+import bean.Produtos;
+import dao.ProdutosDAO;
 import tools.Util;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -218,10 +218,10 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        ProdutosDAO usuariosDAO = new ProdutosDAO();
         if (incluir == false) {
-            UsuariosDAO.insert(viewBean());
-        } else usuariosDAO.update(viewBean());
+          //  ProdutosDAO.insert(viewBean());
+        }// else usuariosDAO.update(viewBean());
         
         Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
                 jCboNivel, jChbAtivo, jFmtPreco, jFmtPeso,  jTxtDescricao);

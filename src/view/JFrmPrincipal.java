@@ -4,12 +4,19 @@
  * and open the template in the editor.
  */
 package view;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
 /**
  *
  * @author user
@@ -22,7 +29,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     public JFrmPrincipal() {
         initComponents();
         setExtendedState(JFrmPrincipal.MAXIMIZED_BOTH);
-                ImageIcon icon = new ImageIcon("src/img/wallpaper.jpg"); 
+        ImageIcon icon = new ImageIcon("src/img/wallpaper.jpg");
         Image image = icon.getImage();
 
         JPanel background = new JPanel() {
@@ -60,6 +67,10 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMnTemaclaro = new javax.swing.JMenuItem();
+        jMnTemaEscuro = new javax.swing.JMenuItem();
+        jMnTemaPadrao = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -120,17 +131,49 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-theme-40.png"))); // NOI18N
+        jMenu4.setText("Tema");
+
+        jMnTemaclaro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-droid-40.png"))); // NOI18N
+        jMnTemaclaro.setText("Claro");
+        jMnTemaclaro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnTemaclaroActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMnTemaclaro);
+
+        jMnTemaEscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-dark-49.png"))); // NOI18N
+        jMnTemaEscuro.setText("Escuro");
+        jMnTemaEscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnTemaEscuroActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMnTemaEscuro);
+
+        jMnTemaPadrao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-blond-40.png"))); // NOI18N
+        jMnTemaPadrao.setText("Padrão");
+        jMnTemaPadrao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnTemaPadraoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMnTemaPadrao);
+
+        jMenuBar1.add(jMenu4);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 674, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 247, Short.MAX_VALUE)
+            .addGap(0, 362, Short.MAX_VALUE)
         );
 
         pack();
@@ -138,19 +181,49 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-            JDlgProdutos jDlgUsuarios = new JDlgProdutos(this, true);
-             jDlgUsuarios.setLocationRelativeTo(this); // centraliza
-             jDlgUsuarios.setVisible(true);            // exibe
+        JDlgProdutos jDlgUsuarios = new JDlgProdutos(this, true);
+        jDlgUsuarios.setLocationRelativeTo(this); // centraliza
+        jDlgUsuarios.setVisible(true);            // exibe
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         JDlgClientes jDlgClientes = new JDlgClientes(this, true);
-             jDlgClientes.setLocationRelativeTo(this); // centraliza
-             jDlgClientes.setVisible(true);            // exibe
-             
-             
+        jDlgClientes.setLocationRelativeTo(this); // centraliza
+        jDlgClientes.setVisible(true);            // exibe
+
+
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMnTemaclaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnTemaclaroActionPerformed
+        // TODO add your handling code here:
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            SwingUtilities.updateComponentTreeUI(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jMnTemaclaroActionPerformed
+
+    private void jMnTemaEscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnTemaEscuroActionPerformed
+        // TODO add your handling code here:
+        try {
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+            SwingUtilities.updateComponentTreeUI(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jMnTemaEscuroActionPerformed
+
+    private void jMnTemaPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnTemaPadraoActionPerformed
+        // TODO add your handling code here:
+    try {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        SwingUtilities.updateComponentTreeUI(this);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_jMnTemaPadraoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,14 +234,14 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-    try {
-        javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
-    } catch (Exception ex) {
-        ex.printStackTrace();
-    }
-    java.awt.EventQueue.invokeLater(() -> new JFrmPrincipal().setVisible(true));
+        try {
+            javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        java.awt.EventQueue.invokeLater(() -> new JFrmPrincipal().setVisible(true));
         //</editor-fold>
-            
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -181,6 +254,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
@@ -190,6 +264,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMnTemaEscuro;
+    private javax.swing.JMenuItem jMnTemaPadrao;
+    private javax.swing.JMenuItem jMnTemaclaro;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     // End of variables declaration//GEN-END:variables

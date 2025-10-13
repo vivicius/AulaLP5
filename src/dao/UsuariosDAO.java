@@ -14,13 +14,13 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author u06716483144
  */
-public class UsuariosDAO extends AbstractDAO{
+public class UsuariosDAO extends AbstractDAO {
 
     @Override
     public void insert(Object object) {
         session.beginTransaction();
         session.save(object);
-        session.getTransaction();
+        session.getTransaction().commit();
     }
 
     @Override
@@ -29,33 +29,35 @@ public class UsuariosDAO extends AbstractDAO{
         session.flush();
         session.clear();
         session.update(object);
-        session.getTransaction();        
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(Object object) {
         session.beginTransaction();
+        session.flush();
+        session.clear();
         session.delete(object);
-        session.getTransaction();  
+        session.getTransaction().commit();
     }
 
     @Override
     public Object list(int id) {
-       session.beginTransaction();
-       Criteria criteria = session.createCriteria((Usuarios.class));
-       criteria.add(Restrictions.eq("idusarios", id));
-       session.getTransaction(); 
-       List lista = criteria.list();
-       session.getTransaction().commit();
-       return lista; 
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Usuarios.class);
+        criteria.add(Restrictions.eq("idusuarios", id));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
     }
 
     @Override
     public Object listAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Usuarios.class);
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
     }
-    
-    
-    
-    
+
 }

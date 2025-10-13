@@ -44,7 +44,10 @@ public class Util {
         int opcao = JOptionPane.showConfirmDialog(null, cad, "Confirmação", JOptionPane.YES_NO_OPTION);
         return opcao == JOptionPane.YES_OPTION;
     }
-
+    
+    public static void mensagem(String cad) {
+        JOptionPane.showMessageDialog(null, cad);
+    }
     public static int strToInt(String num) {
         return Integer.parseInt(num);
     }
@@ -62,12 +65,15 @@ public class Util {
     }
 
     public static Date strToDate(String data) throws java.text.ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            return sdf.parse(data);
-        } catch (ParseException e) {
-            throw new IllegalArgumentException("Data inválida: " + data);
-        }
+    if (data == null || data.trim().isEmpty()) {
+        return null; 
+    }
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    try {
+        return sdf.parse(data);
+    } catch (ParseException e) {
+        throw new IllegalArgumentException("Data inválida: " + data);
+    }
     }
 
     public static String dateToStr(Date data) {

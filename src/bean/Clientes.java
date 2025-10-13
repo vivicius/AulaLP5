@@ -1,14 +1,10 @@
 package bean;
-// Generated 15/09/2025 07:57:35 by Hibernate Tools 4.3.1
+// Generated 13/10/2025 05:11:39 by Hibernate Tools 4.3.1
 
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -16,22 +12,21 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="clientes"
-    ,catalog="db_marcos_vilhanueva"
+    ,catalog="db_vinicius_nunes"
 )
 public class Clientes  implements java.io.Serializable {
 
 
      private int idclientes;
-     private String nome;
-     private String cpf;
-     private String rg;
-     private String cep;
-     private String endereco;
-     private String numero;
      private String bairro;
-     private Integer estadocivil;
-     private Integer sexo;
-     private Set pedidoses = new HashSet(0);
+     private String cep;
+     private String cpf;
+     private String endereco;
+     private int estadocivil;
+     private String nome;
+     private String numero;
+     private String rg;
+     private int sexo;
 
     public Clientes() {
     }
@@ -40,18 +35,17 @@ public class Clientes  implements java.io.Serializable {
     public Clientes(int idclientes) {
         this.idclientes = idclientes;
     }
-    public Clientes(int idclientes, String nome, String cpf, String rg, String cep, String endereco, String numero, String bairro, Integer estadocivil, Integer sexo, Set pedidoses) {
+    public Clientes(int idclientes, String bairro, String cep, String cpf, String endereco, int estadocivil, String nome, String numero, String rg, int sexo) {
        this.idclientes = idclientes;
-       this.nome = nome;
-       this.cpf = cpf;
-       this.rg = rg;
-       this.cep = cep;
-       this.endereco = endereco;
-       this.numero = numero;
        this.bairro = bairro;
+       this.cep = cep;
+       this.cpf = cpf;
+       this.endereco = endereco;
        this.estadocivil = estadocivil;
+       this.nome = nome;
+       this.numero = numero;
+       this.rg = rg;
        this.sexo = sexo;
-       this.pedidoses = pedidoses;
     }
    
      @Id 
@@ -67,33 +61,13 @@ public class Clientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="nome", length=45)
-    public String getNome() {
-        return this.nome;
+    @Column(name="bairro", length=45)
+    public String getBairro() {
+        return this.bairro;
     }
     
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    
-    @Column(name="cpf", length=15)
-    public String getCpf() {
-        return this.cpf;
-    }
-    
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    
-    @Column(name="rg", length=15)
-    public String getRg() {
-        return this.rg;
-    }
-    
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
     
@@ -107,6 +81,16 @@ public class Clientes  implements java.io.Serializable {
     }
 
     
+    @Column(name="cpf", length=15)
+    public String getCpf() {
+        return this.cpf;
+    }
+    
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    
     @Column(name="endereco", length=50)
     public String getEndereco() {
         return this.endereco;
@@ -114,6 +98,26 @@ public class Clientes  implements java.io.Serializable {
     
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    
+    @Column(name="estadocivil")
+    public int getEstadocivil() {
+        return this.estadocivil;
+    }
+    
+    public void setEstadocivil(int estadocivil) {
+        this.estadocivil = estadocivil;
+    }
+
+    
+    @Column(name="nome", length=45)
+    public String getNome() {
+        return this.nome;
+    }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     
@@ -127,42 +131,23 @@ public class Clientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="bairro", length=45)
-    public String getBairro() {
-        return this.bairro;
+    @Column(name="rg", length=15)
+    public String getRg() {
+        return this.rg;
     }
     
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    
-    @Column(name="estadocivil")
-    public Integer getEstadocivil() {
-        return this.estadocivil;
-    }
-    
-    public void setEstadocivil(Integer estadocivil) {
-        this.estadocivil = estadocivil;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     
     @Column(name="sexo")
-    public Integer getSexo() {
+    public int getSexo() {
         return this.sexo;
     }
     
-    public void setSexo(Integer sexo) {
+    public void setSexo(int sexo) {
         this.sexo = sexo;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="clientes")
-    public Set getPedidoses() {
-        return this.pedidoses;
-    }
-    
-    public void setPedidoses(Set pedidoses) {
-        this.pedidoses = pedidoses;
     }
 
 

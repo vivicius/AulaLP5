@@ -1,15 +1,10 @@
 package bean;
-// Generated 15/09/2025 07:57:35 by Hibernate Tools 4.3.1
+// Generated 13/10/2025 05:11:39 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,16 +12,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="produtos"
-    ,catalog="db_marcos_vilhanueva"
+    ,catalog="db_vinicius_nunes"
 )
 public class Produtos  implements java.io.Serializable {
 
 
      private int idprodutos;
+     private int grupo;
      private String nome;
-     private BigDecimal valorUnitario;
-     private Integer grupo;
-     private Set pedidosProdutoses = new HashSet(0);
+     private double valorUnitario;
 
     public Produtos() {
     }
@@ -35,12 +29,11 @@ public class Produtos  implements java.io.Serializable {
     public Produtos(int idprodutos) {
         this.idprodutos = idprodutos;
     }
-    public Produtos(int idprodutos, String nome, BigDecimal valorUnitario, Integer grupo, Set pedidosProdutoses) {
+    public Produtos(int idprodutos, int grupo, String nome, double valorUnitario) {
        this.idprodutos = idprodutos;
+       this.grupo = grupo;
        this.nome = nome;
        this.valorUnitario = valorUnitario;
-       this.grupo = grupo;
-       this.pedidosProdutoses = pedidosProdutoses;
     }
    
      @Id 
@@ -56,6 +49,16 @@ public class Produtos  implements java.io.Serializable {
     }
 
     
+    @Column(name="grupo")
+    public int getGrupo() {
+        return this.grupo;
+    }
+    
+    public void setGrupo(int grupo) {
+        this.grupo = grupo;
+    }
+
+    
     @Column(name="nome", length=60)
     public String getNome() {
         return this.nome;
@@ -66,32 +69,13 @@ public class Produtos  implements java.io.Serializable {
     }
 
     
-    @Column(name="valorUnitario", precision=10)
-    public BigDecimal getValorUnitario() {
+    @Column(name="valorUnitario", precision=10, scale=0)
+    public double getValorUnitario() {
         return this.valorUnitario;
     }
     
-    public void setValorUnitario(BigDecimal valorUnitario) {
+    public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
-    }
-
-    
-    @Column(name="grupo")
-    public Integer getGrupo() {
-        return this.grupo;
-    }
-    
-    public void setGrupo(Integer grupo) {
-        this.grupo = grupo;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="produtos")
-    public Set getPedidosProdutoses() {
-        return this.pedidosProdutoses;
-    }
-    
-    public void setPedidosProdutoses(Set pedidosProdutoses) {
-        this.pedidosProdutoses = pedidosProdutoses;
     }
 
 
