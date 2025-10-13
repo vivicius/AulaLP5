@@ -6,11 +6,19 @@
 package view;
 
 import bean.Produtos;
+import bean.Produtos;
+import bean.Produtos;
+import dao.ProdutosDAO;
 import dao.ProdutosDAO;
 import tools.Util;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 /**
  *
  * @author u10916731103
@@ -25,12 +33,22 @@ public class JDlgProdutos extends javax.swing.JDialog {
         setTitle("Cadastro de Usuários");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir,
-                jCboNivel,
-                jChbAtivo, jFmtPreco, jFmtPeso, jTxtDescricao);
+                jCboNivel,jTxtCodigo1,
+                jChbAtivo, jFmtPreco, jFmtValidade, jTxtDescricao);
         TitledBorder Preco = BorderFactory.createTitledBorder("Preço");
-        TitledBorder DataNasc = BorderFactory.createTitledBorder("Data de Nascimento");
+        TitledBorder DataNasc = BorderFactory.createTitledBorder("Data de Validade");
         jFmtPreco.setBorder(Preco);
-        jFmtPeso.setBorder(DataNasc);
+        jFmtValidade.setBorder(DataNasc);
+            
+        try {
+   
+
+            MaskFormatter maskData = new MaskFormatter("##/##/####");
+            maskData.setPlaceholderCharacter('_');
+            jFmtValidade.setFormatterFactory(new DefaultFormatterFactory(maskData));
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
 
     
     }
@@ -48,7 +66,7 @@ public class JDlgProdutos extends javax.swing.JDialog {
         jTxtNome = new javax.swing.JTextField();
         jTxtDescricao = new javax.swing.JTextField();
         jFmtPreco = new javax.swing.JFormattedTextField();
-        jFmtPeso = new javax.swing.JFormattedTextField();
+        jFmtValidade = new javax.swing.JFormattedTextField();
         jChbAtivo = new javax.swing.JCheckBox();
         jCboNivel = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -59,9 +77,10 @@ public class JDlgProdutos extends javax.swing.JDialog {
         jBtnCancelar = new javax.swing.JButton();
         jBtnPesquisar = new javax.swing.JButton();
         jTxtCodigo1 = new javax.swing.JTextField();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTxtPeso.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTxtPeso.setBorder(javax.swing.BorderFactory.createTitledBorder("Peso"));
@@ -75,7 +94,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jTxtPesoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTxtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 180, 46));
 
         jTxtNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTxtNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
@@ -84,21 +102,17 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jTxtNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTxtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 78, 451, 50));
 
         jTxtDescricao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTxtDescricao.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
-        getContentPane().add(jTxtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 137, 451, 200));
 
+        jFmtPreco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         jFmtPreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jFmtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtPrecoActionPerformed(evt);
             }
         });
-        getContentPane().add(jFmtPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 169, 48));
-        getContentPane().add(jFmtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 216, 50));
-        getContentPane().add(jChbAtivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 437, -1, -1));
 
         jCboNivel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jCboNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%", "75%", "80%", "85%", "90%", "95%", "100%", " " }));
@@ -108,11 +122,9 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jCboNivelActionPerformed(evt);
             }
         });
-        getContentPane().add(jCboNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 423, 151, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Ativo");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 437, -1, 21));
 
         jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-adicionar-50.png"))); // NOI18N
         jBtnIncluir.setText("Incluir");
@@ -121,7 +133,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jBtnIncluirActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnIncluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 510, -1, -1));
 
         jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-alterar-50.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
@@ -130,7 +141,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jBtnAlterarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 510, -1, -1));
 
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-lixo-50.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
@@ -139,7 +149,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jBtnExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 512, -1, -1));
 
         jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-confirmar-50.png"))); // NOI18N
         jBtnConfirmar.setText("Confirmar");
@@ -148,7 +157,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jBtnConfirmarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 587, -1, -1));
 
         jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-cancelar-50.png"))); // NOI18N
         jBtnCancelar.setText("Cancelar");
@@ -157,7 +165,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jBtnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 587, -1, -1));
 
         jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-pesquisar-50.png"))); // NOI18N
         jBtnPesquisar.setText("Pesquisar");
@@ -166,7 +173,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jBtnPesquisarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 587, -1, -1));
 
         jTxtCodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTxtCodigo1.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
@@ -180,12 +186,135 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jTxtCodigo1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTxtCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 16, 133, 46));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jBtnConfirmar)
+                .addGap(11, 11, 11)
+                .addComponent(jBtnCancelar)
+                .addGap(11, 11, 11)
+                .addComponent(jBtnPesquisar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jTxtCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jFmtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jFmtValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jTxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jChbAtivo)
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jBtnIncluir)
+                        .addGap(7, 7, 7)
+                        .addComponent(jBtnAlterar)
+                        .addGap(13, 13, 13)
+                        .addComponent(jBtnExcluir)))
+                .addGap(0, 96, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jTxtCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jFmtValidade, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(jFmtPreco))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jChbAtivo)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnIncluir)
+                    .addComponent(jBtnAlterar)
+                    .addComponent(jBtnExcluir))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBtnConfirmar)
+                            .addComponent(jBtnCancelar)
+                            .addComponent(jBtnPesquisar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public Produtos viewBean() throws ParseException {
+        Produtos produtos = new Produtos();
+        int codigo = Util.strToInt(jTxtCodigo1.getText()); //ou produtos.setIdprodutos(Util.strToInt(jTxtCodigo.getText()));
+        produtos.setIdprodutos(codigo);
+        produtos.setNome(jTxtNome.getText());
+        produtos.set(jTxtApelido.getText());
+        produtos.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
+        produtos.setCpf(jFmtCpf.getText());
+        produtos.setSenha(jPwfSenha.getText());
+        produtos.setNivel(jCboNivel.getSelectedIndex());
+        if (jChbAtivo.isSelected() == true) {
+            produtos.setAtivo("S");
+        } else {
+            produtos.setAtivo("N");
+        }
 
-    
+        return produtos;
+    }
+        public void beanView(Produtos produtos) {
+        jTxtCodigo1.setText(Util.intToString(produtos.getIdprodutos()));
+        jTxtNome.setText(produtos.getNome());
+        jTxtDescricao.setText(produtos.getApelido());
+        jFmtCpf.setText(produtos.getCpf());
+        jFmtDataDeNascimento.setText(Util.dateToStr(produtos.getDataNascimento()));
+        jPwfSenha.setText(produtos.getSenha());
+        jCboNivel.setSelectedIndex(produtos.getNivel());
+        if (produtos.getAtivo().equals("S") == true) {
+            jChbAtivo.setSelected(true);
+        } else {
+            jChbAtivo.setSelected(false);
+        }
     private void jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtNomeActionPerformed
@@ -193,38 +322,49 @@ public class JDlgProdutos extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtPeso,  jTxtDescricao);
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
         Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-        Util.limpar(jTxtPeso,jCboNivel, jChbAtivo, jTxtNome,jFmtPreco, jFmtPeso,  jTxtDescricao);
+        Util.limpar(jTxtPeso,jCboNivel, jChbAtivo, jTxtNome,jFmtPreco, jFmtValidade,  jTxtDescricao);
         jTxtCodigo1.grabFocus();
+        incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtPeso,  jTxtDescricao);
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
         Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-        
+        incluir = false;
 
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if (Util.perguntar("DEseja apacar") == true) {
-            
+        if (Util.perguntar("Deseja realmente excluir o registro?")) {
+            Util.mensagem("Registro excluído com sucesso!");
+            ProdutosDAO produtosDAO = new ProdutosDAO();
+            try {
+                produtosDAO.delete(viewBean());
+                Util.limpar(jTxtCodigo1, jTxtPeso, jTxtNome, jFmtValidade, jFmtPreco, jCboNivel, jChbAtivo, jTxtDescricao);
+                Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
+            } catch (ParseException ex) {
+                Logger.getLogger(JDlgProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            Util.mensagem("Exclusão cancelada.");
         }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        ProdutosDAO usuariosDAO = new ProdutosDAO();
+        ProdutosDAO produtosDAO = new ProdutosDAO();
         if (incluir == false) {
           //  ProdutosDAO.insert(viewBean());
-        }// else usuariosDAO.update(viewBean());
+        }// else produtosDAO.update(viewBean());
         
         Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtPeso,  jTxtDescricao);
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
        
 
@@ -239,9 +379,9 @@ public class JDlgProdutos extends javax.swing.JDialog {
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtPeso,  jTxtDescricao);
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-             Util.limpar(jTxtPeso,jCboNivel, jChbAtivo, jTxtNome,jFmtPreco, jFmtPeso,  jTxtDescricao);
+             Util.limpar(jTxtPeso,jCboNivel, jChbAtivo, jTxtNome,jFmtPreco, jFmtValidade,  jTxtDescricao);
     
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
@@ -321,6 +461,8 @@ public class JDlgProdutos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jBtnAlterar;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnConfirmar;
@@ -329,8 +471,8 @@ public class JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JButton jBtnPesquisar;
     private javax.swing.JComboBox<String> jCboNivel;
     private javax.swing.JCheckBox jChbAtivo;
-    private javax.swing.JFormattedTextField jFmtPeso;
     private javax.swing.JFormattedTextField jFmtPreco;
+    private javax.swing.JFormattedTextField jFmtValidade;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTxtCodigo1;
     private javax.swing.JTextField jTxtDescricao;

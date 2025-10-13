@@ -3,10 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/dao/ProdutosDAO.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/tools/Util.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/view/JDlgUsuariosPesquisar.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/bean/Vendedor.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/bean/PedidosProdutos.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/view/JFrmPrincipal.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/bean/Clientes.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/bean/Produtos.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/dao/UsuariosDAO.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/view/JDlgUsuarios.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/dao/ClientesDAO.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/view/JDlgProdutos.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AulaLP5/src/bean/Pedidos.java</file>
         </group>
     </open-files>
 </project-private>

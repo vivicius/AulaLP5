@@ -36,7 +36,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // desenha a imagem esticada pro tamanho da tela
+                
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -217,12 +217,14 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMnTemaPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnTemaPadraoActionPerformed
         // TODO add your handling code here:
-    try {
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        SwingUtilities.updateComponentTreeUI(this);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+        try {
+
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+            SwingUtilities.updateComponentTreeUI(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jMnTemaPadraoActionPerformed
 
     /**

@@ -30,7 +30,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Usuários");
         setLocationRelativeTo(null);
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar,jBtnAlterar, jBtnExcluir,                jCboNivel,
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir, jCboNivel,
                 jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
         TitledBorder CPF = BorderFactory.createTitledBorder("CPF");
         TitledBorder DataNasc = BorderFactory.createTitledBorder("Data de Nascimento");
@@ -341,37 +341,43 @@ public class JDlgUsuarios extends javax.swing.JDialog {
             UsuariosDAO usuariosDAO = new UsuariosDAO();
             try {
                 usuariosDAO.delete(viewBean());
+                Util.limpar(jTxtCodigo, jTxtApelido, jTxtNome, jFmtCpf, jFmtDataDeNascimento, jCboNivel, jChbAtivo, jPwfSenha);
+                Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
             } catch (ParseException ex) {
                 Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             Util.mensagem("Exclusão cancelada.");
         }
-        Util.limpar(jTxtCodigo, jTxtApelido, jTxtNome, jFmtCpf, jFmtDataDeNascimento, jCboNivel, jChbAtivo, jPwfSenha);
+
+
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         UsuariosDAO usuariosDAO = new UsuariosDAO();
-
+     
         if (incluir == true) {
             try {
+
                 usuariosDAO.insert(viewBean());
+           
             } catch (ParseException ex) {
                 Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             try {
                 usuariosDAO.update(viewBean());
+               
             } catch (ParseException ex) {
                 Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-       Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar,jBtnAlterar, jBtnExcluir,                jCboNivel,
+        
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir, jCboNivel,
                 jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
-       
+
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
 
         Util.limpar(jTxtCodigo, jTxtApelido, jTxtNome, jFmtCpf, jFmtDataDeNascimento, jCboNivel, jChbAtivo, jPwfSenha);
@@ -381,11 +387,11 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here: 
-        
+
         JDlgUsuariosPesquisar jDlgUsuariosPesquisar = new JDlgUsuariosPesquisar(null, true);
         jDlgUsuariosPesquisar.setTelaAnterior(this);
         jDlgUsuariosPesquisar.setVisible(true);
-        if(jDlgUsuariosPesquisar.ok()){
+        if (jDlgUsuariosPesquisar.ok()) {
             Util.habilitar(true, jBtnAlterar, jBtnExcluir);
         }
 
@@ -395,7 +401,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar,
                 jCboNivel, jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtCodigo, jCboNivel, jChbAtivo, jTxtNome, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
 
 
