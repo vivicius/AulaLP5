@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package view.Clientes;
+package view.Produtos;
 
-import view.Clientes.*;
-import bean.VmanClientes;
-import dao.ClientesDAO;
+import bean.VmanProdutos;
+import dao.ProdutosDAO;
 import java.util.List;
 import tools.Util;
 
@@ -14,29 +13,29 @@ import tools.Util;
  *
  * @author Marcos
  */
-public class JDlgClientesPesquisar extends javax.swing.JDialog {
+public class JDlgProdutosPesquisar extends javax.swing.JDialog {
 
     /**
-     * Creates new form JDlgClientesPesquisar
+     * Creates new form JDlgProdutosPesquisar
      */
-    private JDlgClientes jDlgClientes;
-    ControllerClientes controllerClientes;
+    private JDlgProdutos jDlgProdutos;
+    ControllerProdutos controllerProdutos;
     private boolean ok = false;
 
-    public JDlgClientesPesquisar(java.awt.Frame parent, boolean modal) {
+    public JDlgProdutosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Pesquisar Clientes");
-        controllerClientes = new ControllerClientes();
-        ClientesDAO clientesDAO = new ClientesDAO();
-        List lista = (List) clientesDAO.listAll();
-        controllerClientes.setList(lista);
-        jTable1.setModel(controllerClientes);
+        setTitle("Pesquisar Produtos");
+        controllerProdutos = new ControllerProdutos();
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        List lista = (List) produtosDAO.listAll();
+        controllerProdutos.setList(lista);
+        jTable1.setModel(controllerProdutos);
     }
 
-    public void setTelaAnterior(JDlgClientes jDlgClientes) {;
-        this.jDlgClientes = jDlgClientes;
+    public void setTelaAnterior(JDlgProdutos jDlgProdutos) {;
+        this.jDlgProdutos = jDlgProdutos;
     }
 
     public boolean ok() {
@@ -107,8 +106,8 @@ public class JDlgClientesPesquisar extends javax.swing.JDialog {
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
        //  try {
-        VmanClientes clientes =  controllerClientes.getBean( jTable1.getSelectedRow() );
-        jDlgClientes.beanView(clientes);
+        VmanProdutos produtos =  controllerProdutos.getBean( jTable1.getSelectedRow() );
+        jDlgProdutos.beanView(produtos);
         this.setVisible(false);
         ok = true;
             
@@ -135,14 +134,18 @@ public class JDlgClientesPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlgClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -151,7 +154,7 @@ public class JDlgClientesPesquisar extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlgClientesPesquisar dialog = new JDlgClientesPesquisar(new javax.swing.JFrame(), true);
+                JDlgProdutosPesquisar dialog = new JDlgProdutosPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

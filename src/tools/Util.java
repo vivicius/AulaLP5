@@ -33,8 +33,10 @@ public class Util {
                 ((JTextField) componentes[i]).setText("");
             } else if ((componentes[i]) instanceof JComboBox) {
                 ((JComboBox) componentes[i]).setSelectedIndex(-1);
-            } else {
+            } else if ((componentes[i]) instanceof JCheckBox){
                 ((JCheckBox) componentes[i]).setSelected(false);
+            } else {
+            
             }
 
         }
@@ -45,11 +47,21 @@ public class Util {
         return opcao == JOptionPane.YES_OPTION;
     }
 
+    public static String limparFormatacao(String valor) {
+        if (valor == null) {
+            return null;
+        }
+        return valor.replaceAll("\\D", "");
+    }
+
     public static void mensagem(String cad) {
         JOptionPane.showMessageDialog(null, cad);
     }
 
     public static int strToInt(String num) {
+        if (num == null) {
+            return 0;
+        }
         return Integer.parseInt(num);
     }
 
@@ -58,7 +70,10 @@ public class Util {
     }
 
     public static double strToDouble(String num) {
-        return Double.parseDouble(num);
+        if (num == null || num.trim().isEmpty()) {
+            return 0.0;
+        }
+        return Double.parseDouble(num.trim().replace(',' ,'.'));
     }
 
     public static String doubleToString(double num) {
@@ -68,17 +83,19 @@ public class Util {
     public static Date strToDate(String data) throws java.text.ParseException {
         if (data == null || data.trim().isEmpty() || "__/__/____".equals(data.trim())) {
             return null;
-        } else {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                return sdf.parse(data);
-            } catch (ParseException e) {
-                throw new IllegalArgumentException("Data inválida: " + data);
-            }
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            return sdf.parse(data.trim());
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Data inválida: " + data);
         }
     }
 
     public static String dateToStr(Date data) {
+        if (data == null) {
+            return "";
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(data);
     }

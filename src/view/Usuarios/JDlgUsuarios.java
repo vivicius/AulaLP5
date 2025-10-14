@@ -342,7 +342,8 @@ public class JDlgUsuarios extends javax.swing.JDialog {
             try {
                 usuariosDAO.delete(viewBean());
                 Util.limpar(jTxtCodigo, jTxtApelido, jTxtNome, jFmtCpf, jFmtDataDeNascimento, jCboNivel, jChbAtivo, jPwfSenha);
-                Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
+                Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+                Util.habilitar(false, jBtnExcluir, jBtnAlterar);
             } catch (ParseException ex) {
                 Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -357,23 +358,28 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         UsuariosDAO usuariosDAO = new UsuariosDAO();
-        if (incluir == true) {
-            try {
+        try {
+            if (viewBean().getVmanIdusuarios() == 0) {
+                Util.mensagem("Poxa, colega! Coloque um id Válido");
+            } else if (incluir == true) {
+                try {
+                    usuariosDAO.insert(viewBean());
 
-                usuariosDAO.insert(viewBean());
-           
-            } catch (ParseException ex) {
-                Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {
+                    usuariosDAO.update(viewBean());
+
+                } catch (ParseException ex) {
+                    Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        } else {
-            try {
-                usuariosDAO.update(viewBean());
-               
-            } catch (ParseException ex) {
-                Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (ParseException ex) {
+            Logger.getLogger(JDlgUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Util.habilitar(false, jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir, jCboNivel,
                 jChbAtivo, jFmtCpf, jFmtDataDeNascimento, jPwfSenha, jTxtApelido);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);

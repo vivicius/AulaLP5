@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.Produtos;
 
-import bean.Produtos;
-import bean.Produtos;
-import bean.Produtos;
+import bean.VmanProdutos;
+
 import dao.ProdutosDAO;
 import dao.ProdutosDAO;
 import tools.Util;
@@ -19,6 +18,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import view.Produtos.JDlgProdutos;
+import view.Produtos.JDlgProdutosPesquisar;
+import view.Produtos.JDlgProdutos;
+
 /**
  *
  * @author u10916731103
@@ -26,31 +29,25 @@ import javax.swing.text.MaskFormatter;
 public class JDlgProdutos extends javax.swing.JDialog {
 
     private boolean incluir;
-        
+    private JComponent[] CAMPOS_EDICAO;
+
     public JDlgProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Cadastro de Usuários");
+        setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir,
-                jCboNivel,jTxtCodigo1,
-                jChbAtivo, jFmtPreco, jFmtValidade, jTxtDescricao);
+                jCboNivel, jTxtCodigo,
+                jChbAtivo, jFmtPreco, jFmtQuantidade, jTxtDescricao);
         TitledBorder Preco = BorderFactory.createTitledBorder("Preço");
-        TitledBorder DataNasc = BorderFactory.createTitledBorder("Data de Validade");
+        TitledBorder DataNasc = BorderFactory.createTitledBorder("Quantidade");
         jFmtPreco.setBorder(Preco);
-        jFmtValidade.setBorder(DataNasc);
-            
-        try {
-   
+        jFmtQuantidade.setBorder(DataNasc);
+        CAMPOS_EDICAO = new JComponent[]{
+            jTxtCodigo, jTxtNome, jBtnCancelar, jBtnConfirmar,
+            jTxtPeso, jCboNivel, jChbAtivo, jTxtNome, jFmtPreco, jFmtQuantidade, jTxtDescricao
+        };
 
-            MaskFormatter maskData = new MaskFormatter("##/##/####");
-            maskData.setPlaceholderCharacter('_');
-            jFmtValidade.setFormatterFactory(new DefaultFormatterFactory(maskData));
-        } catch (java.text.ParseException e) {
-            e.printStackTrace();
-        }
-
-    
     }
 
     /**
@@ -64,9 +61,8 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
         jTxtPeso = new javax.swing.JTextField();
         jTxtNome = new javax.swing.JTextField();
-        jTxtDescricao = new javax.swing.JTextField();
         jFmtPreco = new javax.swing.JFormattedTextField();
-        jFmtValidade = new javax.swing.JFormattedTextField();
+        jFmtQuantidade = new javax.swing.JFormattedTextField();
         jChbAtivo = new javax.swing.JCheckBox();
         jCboNivel = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -76,9 +72,11 @@ public class JDlgProdutos extends javax.swing.JDialog {
         jBtnConfirmar = new javax.swing.JButton();
         jBtnCancelar = new javax.swing.JButton();
         jBtnPesquisar = new javax.swing.JButton();
-        jTxtCodigo1 = new javax.swing.JTextField();
+        jTxtCodigo = new javax.swing.JTextField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTxtDescricao = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -102,9 +100,6 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 jTxtNomeActionPerformed(evt);
             }
         });
-
-        jTxtDescricao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTxtDescricao.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
 
         jFmtPreco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         jFmtPreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -174,18 +169,25 @@ public class JDlgProdutos extends javax.swing.JDialog {
             }
         });
 
-        jTxtCodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTxtCodigo1.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
-        jTxtCodigo1.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTxtCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTxtCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
+        jTxtCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTxtCodigo1FocusLost(evt);
+                jTxtCodigoFocusLost(evt);
             }
         });
-        jTxtCodigo1.addActionListener(new java.awt.event.ActionListener() {
+        jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodigo1ActionPerformed(evt);
+                jTxtCodigoActionPerformed(evt);
             }
         });
+
+        jTxtDescricao.setColumns(20);
+        jTxtDescricao.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        jTxtDescricao.setLineWrap(true);
+        jTxtDescricao.setRows(5);
+        jTxtDescricao.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
+        jScrollPane1.setViewportView(jTxtDescricao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,23 +204,11 @@ public class JDlgProdutos extends javax.swing.JDialog {
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jTxtCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jFmtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jFmtValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addComponent(jTxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,12 +217,17 @@ public class JDlgProdutos extends javax.swing.JDialog {
                         .addGap(9, 9, 9)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addComponent(jBtnIncluir)
                         .addGap(7, 7, 7)
                         .addComponent(jBtnAlterar)
                         .addGap(13, 13, 13)
-                        .addComponent(jBtnExcluir)))
+                        .addComponent(jBtnExcluir))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jFmtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(61, 61, 61)
+                            .addComponent(jFmtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 96, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -243,14 +238,14 @@ public class JDlgProdutos extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jTxtCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jFmtValidade, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(jFmtQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(jFmtPreco))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,62 +272,68 @@ public class JDlgProdutos extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public Produtos viewBean() throws ParseException {
-        Produtos produtos = new Produtos();
-        int codigo = Util.strToInt(jTxtCodigo1.getText()); //ou produtos.setIdprodutos(Util.strToInt(jTxtCodigo.getText()));
-        produtos.setIdprodutos(codigo);
-        produtos.setNome(jTxtNome.getText());
-        produtos.set(jTxtApelido.getText());
-        produtos.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
-        produtos.setCpf(jFmtCpf.getText());
-        produtos.setSenha(jPwfSenha.getText());
-        produtos.setNivel(jCboNivel.getSelectedIndex());
-        if (jChbAtivo.isSelected() == true) {
-            produtos.setAtivo("S");
-        } else {
-            produtos.setAtivo("N");
+// Converte os valores da interface para um objeto VmanProdutos
+
+    public VmanProdutos viewBean() throws ParseException {
+        VmanProdutos produtos = new VmanProdutos();
+
+        // ID do produto
+        produtos.setVmanIdProdutos(Util.strToInt(jTxtCodigo.getText()));
+
+        // Nome e descrição
+        produtos.setVmanProduto(jTxtNome.getText());
+        produtos.setVmanDescricao(jTxtDescricao.getText());
+        produtos.setVmanPreco(Util.strToDouble(jFmtPreco.getText()));
+        produtos.setVmanGramas(Util.strToInt(jTxtPeso.getText()));
+        produtos.setVmanQuantidade(Util.strToInt(jFmtQuantidade.getText()));
+        
+        // Porcentagem de cacau
+        if (jCboNivel.getSelectedIndex() >= 0) {
+            produtos.setVmanPorcentagemCacau(jCboNivel.getSelectedIndex());
         }
+
+        // Ativo
+        produtos.setVmanAtivo(jChbAtivo.isSelected() ? "S" : "N");
 
         return produtos;
     }
-        public void beanView(Produtos produtos) {
-        jTxtCodigo1.setText(Util.intToString(produtos.getIdprodutos()));
-        jTxtNome.setText(produtos.getNome());
-        jTxtDescricao.setText(produtos.getApelido());
-        jFmtCpf.setText(produtos.getCpf());
-        jFmtDataDeNascimento.setText(Util.dateToStr(produtos.getDataNascimento()));
-        jPwfSenha.setText(produtos.getSenha());
-        jCboNivel.setSelectedIndex(produtos.getNivel());
-        if (produtos.getAtivo().equals("S") == true) {
-            jChbAtivo.setSelected(true);
-        } else {
-            jChbAtivo.setSelected(false);
-        }
+
+// Preenche os campos da interface a partir de um objeto VmanProdutos
+    public void beanView(VmanProdutos produtos) {
+        jTxtCodigo.setText(Util.intToString(produtos.getVmanIdProdutos()));
+        jTxtNome.setText(produtos.getVmanProduto());
+        jTxtDescricao.setText(produtos.getVmanDescricao());
+        jFmtPreco.setText(Util.doubleToString(produtos.getVmanPreco()));
+        jTxtPeso.setText(Util.intToString(produtos.getVmanQuantidade()));
+        jCboNivel.setSelectedIndex(produtos.getVmanPorcentagemCacau());
+        jChbAtivo.setSelected("S".equals(produtos.getVmanAtivo()));
+        jFmtQuantidade.setText(Util.intToString(produtos.getVmanQuantidade()));
+    }
+
     private void jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtNomeActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
+        Util.habilitar(true, jTxtCodigo, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtQuantidade, jTxtDescricao);
         Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-        Util.limpar(jTxtPeso,jCboNivel, jChbAtivo, jTxtNome,jFmtPreco, jFmtValidade,  jTxtDescricao);
-        jTxtCodigo1.grabFocus();
+        Util.limpar(CAMPOS_EDICAO);
+        jTxtCodigo.grabFocus();
         incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
+        Util.habilitar(true, jTxtCodigo, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtQuantidade, jTxtDescricao);
         Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
         incluir = false;
 
@@ -345,8 +346,8 @@ public class JDlgProdutos extends javax.swing.JDialog {
             ProdutosDAO produtosDAO = new ProdutosDAO();
             try {
                 produtosDAO.delete(viewBean());
-                Util.limpar(jTxtCodigo1, jTxtPeso, jTxtNome, jFmtValidade, jFmtPreco, jCboNivel, jChbAtivo, jTxtDescricao);
-                Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
+                Util.limpar(CAMPOS_EDICAO);
+                Util.habilitar(false, jBtnExcluir, jBtnAlterar);
             } catch (ParseException ex) {
                 Logger.getLogger(JDlgProdutos.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -358,31 +359,55 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+
         ProdutosDAO produtosDAO = new ProdutosDAO();
-        if (incluir == false) {
-          //  ProdutosDAO.insert(viewBean());
-        }// else produtosDAO.update(viewBean());
-        
-        Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-       
+        try {
+            if (viewBean().getVmanIdProdutos() == 0) {
+                Util.mensagem("Poxa, colega! Coloque um id Válido");
+            } else if (incluir == true) {
+                try {
+                    produtosDAO.insert(viewBean());
+
+                } catch (ParseException ex) {
+                    Logger.getLogger(JDlgProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {
+                    produtosDAO.update(viewBean());
+
+                } catch (ParseException ex) {
+                    Logger.getLogger(JDlgProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(JDlgProdutos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Util.habilitar(false, jTxtCodigo, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtQuantidade, jTxtDescricao);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(CAMPOS_EDICAO);
+
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here: 
-
-
+        JDlgProdutosPesquisar jDlgProdutosPesquisar = new JDlgProdutosPesquisar(null, true);
+        jDlgProdutosPesquisar.setTelaAnterior(this);
+        jDlgProdutosPesquisar.setVisible(true);
+        if (jDlgProdutosPesquisar.ok()) {
+            Util.habilitar(true, jBtnAlterar, jBtnExcluir);
+        }
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
-                jCboNivel, jChbAtivo, jFmtPreco, jFmtValidade,  jTxtDescricao);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-             Util.limpar(jTxtPeso,jCboNivel, jChbAtivo, jTxtNome,jFmtPreco, jFmtValidade,  jTxtDescricao);
-    
+        Util.habilitar(false, jTxtCodigo, jTxtPeso, jTxtNome, jBtnCancelar, jBtnConfirmar,
+                jCboNivel, jChbAtivo, jFmtPreco, jFmtQuantidade, jTxtDescricao);
+        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Util.limpar(jTxtPeso, jCboNivel, jChbAtivo, jTxtNome, jFmtPreco, jFmtQuantidade, jTxtDescricao);
+
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -403,13 +428,13 @@ public class JDlgProdutos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtPrecoActionPerformed
 
-    private void jTxtCodigo1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtCodigo1FocusLost
+    private void jTxtCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtCodigoFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodigo1FocusLost
+    }//GEN-LAST:event_jTxtCodigoFocusLost
 
-    private void jTxtCodigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigo1ActionPerformed
+    private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodigo1ActionPerformed
+    }//GEN-LAST:event_jTxtCodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,10 +497,11 @@ public class JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> jCboNivel;
     private javax.swing.JCheckBox jChbAtivo;
     private javax.swing.JFormattedTextField jFmtPreco;
-    private javax.swing.JFormattedTextField jFmtValidade;
+    private javax.swing.JFormattedTextField jFmtQuantidade;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTxtCodigo1;
-    private javax.swing.JTextField jTxtDescricao;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTxtCodigo;
+    private javax.swing.JTextArea jTxtDescricao;
     private javax.swing.JTextField jTxtNome;
     private javax.swing.JTextField jTxtPeso;
     // End of variables declaration//GEN-END:variables

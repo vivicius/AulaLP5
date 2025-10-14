@@ -60,7 +60,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         jBtnIncluirProd = new javax.swing.JButton();
         jBtnAlterar1 = new javax.swing.JButton();
         jBtnExcluirProd = new javax.swing.JButton();
-        jCboxVendedor = new javax.swing.JComboBox<Vendedor>();
+        jCboxVendedor = new javax.swing.JComboBox<VmanVendedor>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -346,7 +346,7 @@ public class JDlgVendas extends javax.swing.JDialog {
     private javax.swing.JButton jBtnIncluirProd;
     private javax.swing.JButton jBtnPesquisar;
     private javax.swing.JComboBox<VmanClientes> jCboxCliente;
-    private javax.swing.JComboBox<Vendedor> jCboxVendedor;
+    private javax.swing.JComboBox<VmanVendedor> jCboxVendedor;
     private javax.swing.JFormattedTextField jFmtData;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

@@ -18,6 +18,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import view.Produtos.JDlgProdutos;
 
 /**
  *
@@ -31,15 +32,18 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     public JFrmPrincipal() {
         initComponents();
         setExtendedState(JFrmPrincipal.MAXIMIZED_BOTH);
-        ImageIcon icon = new ImageIcon("src/img/wallpaper.jpg");
-        Image image = icon.getImage();
+        ImageIcon claro = new ImageIcon("src/img/wallpaper.jpg");
+        ImageIcon dark = new ImageIcon("src/img/dark.jpg");
+        ImageIcon padrao = new ImageIcon("src/img/padrao.jpg");
+        Image claroImg = dark.getImage();
+        Image darkImg = dark.getImage();
+        Image padraoImg = padrao.getImage();
 
         JPanel background = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                
-                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(darkImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
 
@@ -113,6 +117,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-chocolate-40.png"))); // NOI18N
         jMenuItem10.setText("Produtos");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem10);
         jMenu2.add(jSeparator3);
 
@@ -200,7 +209,19 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void jMnTemaclaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnTemaclaroActionPerformed
         // TODO add your handling code here:
         try {
+            ImageIcon claro = new ImageIcon("src/img/wallpaper.jpg");
+            Image claroImg = claro.getImage();
+            JPanel background = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(claroImg, 0, 0, getWidth(), getHeight(), this);
+                }
+            };
+
+            setContentPane(background);
             UIManager.setLookAndFeel(new FlatLightLaf());
+
             SwingUtilities.updateComponentTreeUI(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -210,6 +231,17 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void jMnTemaEscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnTemaEscuroActionPerformed
         // TODO add your handling code here:
         try {
+            ImageIcon dark = new ImageIcon("src/img/dark.jpg");
+            Image darkImg = dark.getImage();
+            JPanel background = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(darkImg, 0, 0, getWidth(), getHeight(), this);
+                }
+            };
+
+            setContentPane(background);
             UIManager.setLookAndFeel(new FlatDarkLaf());
             SwingUtilities.updateComponentTreeUI(this);
         } catch (Exception e) {
@@ -224,10 +256,29 @@ public class JFrmPrincipal extends javax.swing.JFrame {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             SwingUtilities.updateComponentTreeUI(this);
+            ImageIcon padrao = new ImageIcon("src/img/padrao.jpg");
+            Image padraoImg = padrao.getImage();
+            JPanel background = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(padraoImg, 0, 0, getWidth(), getHeight(), this);
+                }
+            };
+            setContentPane(background);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }//GEN-LAST:event_jMnTemaPadraoActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        JDlgProdutos jDlgUsuarios = new JDlgProdutos(this, true);
+        jDlgUsuarios.setLocationRelativeTo(this); // centraliza
+        jDlgUsuarios.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,7 +294,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        java.awt.EventQueue.invokeLater(() -> new JFrmPrincipal().setVisible(true));
+
         //</editor-fold>
 
         /* Create and display the form */

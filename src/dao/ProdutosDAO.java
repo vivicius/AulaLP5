@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.VmanUsuarios;
+import bean.VmanProdutos;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -14,7 +14,7 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author u06716483144
  */
-public class UsuariosDAO extends AbstractDAO {
+public class ProdutosDAO extends AbstractDAO {
 
     @Override
     public void insert(Object object) {
@@ -44,8 +44,8 @@ public class UsuariosDAO extends AbstractDAO {
     @Override
     public Object list(int id) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(VmanUsuarios.class);
-        criteria.add(Restrictions.eq("vmanIdusuarios", id));
+        Criteria criteria = session.createCriteria(VmanProdutos.class);
+        criteria.add(Restrictions.eq("vmanIdProdutos", id));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -54,7 +54,7 @@ public class UsuariosDAO extends AbstractDAO {
     @Override
     public Object listAll() {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(VmanUsuarios.class);
+        Criteria criteria = session.createCriteria(VmanProdutos.class);
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
