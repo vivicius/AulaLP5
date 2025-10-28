@@ -39,7 +39,7 @@
                   <KeyStroke key="Ctrl+U"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-administrador-40.png"/>
+                  <Image iconType="3" name="/img/icons8-administrador-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
               </Properties>
@@ -53,7 +53,7 @@
                   <KeyStroke key="Ctrl+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-sal&#xe1;rio-masculino-40.png"/>
+                  <Image iconType="3" name="/img/icons8-sal&#xe1;rio-masculino-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Vendedor"/>
               </Properties>
@@ -64,7 +64,7 @@
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-grupo-de-usu&#xe1;rio-homem-homem-40.png"/>
+                  <Image iconType="3" name="/img/icons8-grupo-de-usu&#xe1;rio-homem-homem-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
@@ -78,7 +78,7 @@
                   <KeyStroke key="Ctrl+P"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-chocolate-40.png"/>
+                  <Image iconType="3" name="/img/icons8-chocolate-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Produtos"/>
               </Properties>
@@ -94,7 +94,7 @@
                   <KeyStroke key="Ctrl+Alt+S"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-fechar-janela-40.png"/>
+                  <Image iconType="3" name="/img/icons8-fechar-janela-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
@@ -115,7 +115,7 @@
                   <KeyStroke key="Shift+Ctrl+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-balc&#xe3;o-de-caixa-40.png"/>
+                  <Image iconType="3" name="/img/icons8-balc&#xe3;o-de-caixa-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Vendas"/>
               </Properties>
@@ -133,7 +133,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMnTemaclaro">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-droid-40.png"/>
+                  <Image iconType="3" name="/img/icons8-droid-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Claro"/>
               </Properties>
@@ -144,7 +144,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMnTemaEscuro">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-dark-49.png"/>
+                  <Image iconType="3" name="/img/icons8-dark-49.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Escuro"/>
               </Properties>
@@ -155,7 +155,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMnTemaPadrao">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/img/icons8-blond-40.png"/>
+                  <Image iconType="3" name="/img/icons8-blond-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Padr&#xe3;o"/>
               </Properties>

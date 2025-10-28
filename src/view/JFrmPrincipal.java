@@ -100,7 +100,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Cadastro");
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-administrador-40.png"))); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-administrador-40.png"))); // NOI18N
         jMenuItem6.setText("Usuários");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,12 +110,12 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem6);
 
         jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-salário-masculino-40.png"))); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-salário-masculino-40.png"))); // NOI18N
         jMenuItem7.setText("Vendedor");
         jMenu2.add(jMenuItem7);
 
         jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-grupo-de-usuário-homem-homem-40.png"))); // NOI18N
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-grupo-de-usuário-homem-homem-40.png"))); // NOI18N
         jMenuItem11.setText("Cliente");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem11);
 
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-chocolate-40.png"))); // NOI18N
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-chocolate-40.png"))); // NOI18N
         jMenuItem10.setText("Produtos");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu2.add(jSeparator3);
 
         jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-fechar-janela-40.png"))); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fechar-janela-40.png"))); // NOI18N
         jMenuItem9.setText("Sair");
         jMenu2.add(jMenuItem9);
 
@@ -146,7 +146,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Movimento");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-balcão-de-caixa-40.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-balcão-de-caixa-40.png"))); // NOI18N
         jMenuItem1.setText("Vendas");
         jMenu3.add(jMenuItem1);
 
@@ -155,7 +155,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-theme-40.png"))); // NOI18N
         jMenu4.setText("Tema");
 
-        jMnTemaclaro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-droid-40.png"))); // NOI18N
+        jMnTemaclaro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-droid-40.png"))); // NOI18N
         jMnTemaclaro.setText("Claro");
         jMnTemaclaro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +164,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMnTemaclaro);
 
-        jMnTemaEscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-dark-49.png"))); // NOI18N
+        jMnTemaEscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-dark-49.png"))); // NOI18N
         jMnTemaEscuro.setText("Escuro");
         jMnTemaEscuro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +173,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMnTemaEscuro);
 
-        jMnTemaPadrao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/img/icons8-blond-40.png"))); // NOI18N
+        jMnTemaPadrao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-blond-40.png"))); // NOI18N
         jMnTemaPadrao.setText("Padrão");
         jMnTemaPadrao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
