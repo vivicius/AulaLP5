@@ -8,11 +8,9 @@ package view.Produtos;
 import bean.VmanProdutos;
 
 import dao.ProdutosDAO;
-import dao.ProdutosDAO;
 import tools.Util;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import java.awt.*;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
